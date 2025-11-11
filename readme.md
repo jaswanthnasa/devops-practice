@@ -74,4 +74,4 @@ annotation in the servlet's source code. In this case, that file is
 By changing these values and rebuilding (and consequent redeploying) your
 project, you'll be able to reach your application with your fancy new path.
 Please note that the links displayed on the web page will not change
-accordingly, as they are set manually.
+accordingly, as they are set manually...
