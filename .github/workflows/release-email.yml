@@ -1,0 +1,36 @@
+name: Notify by Email on Release
+
+on:
+  release:
+    types: [published]   # Trigger when a new release is published
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send Email Notification
+      uses: dawidd6/action-send-mail@v3
+      with:
+        # Gmail SMTP configuration
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.MAIL_USERNAME }}
+        password: ${{ secrets.MAIL_PASSWORD }}
+
+        # Email details
+        subject: "🚀 New Release: ${{ github.event.release.tag_name }}"
+        to: yourgmail@gmail.com       # Recipient (can be same as sender)
+        from: GitHub Release Bot <${{ secrets.MAIL_USERNAME }}>
+        body: |
+          📦 **New GitHub Release Notification**
+
+          Repository: ${{ github.repository }}
+          Release Tag: ${{ github.event.release.tag_name }}
+          Published At: ${{ github.event.release.published_at }}
+          Release Name: ${{ github.event.release.name }}
+          Release Notes:
+          ${{ github.event.release.body }}
+
+          🔗 View release details:
+          ${{ github.event.release.html_url }}
