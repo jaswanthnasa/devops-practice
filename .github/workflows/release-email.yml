@@ -3,7 +3,7 @@ name: Notify by Email on Release
 on:
   push:
     branches:
-      - main
+      - master
   release:
     types: [published]   # Trigger when a new release is published
 
