@@ -20,7 +20,7 @@ jobs:
 
         # Email details
         subject: "🚀 New Release: ${{ github.event.release.tag_name }}"
-        to: jassu.563l@gmail.com       # Recipient (can be same as sender)
+        to: ${{ secrets.MAIL_USERNAME }}       # Recipient (can be same as sender)
         from: GitHub Release Bot <${{ secrets.MAIL_USERNAME }}>
         body: |
           📦 **New GitHub Release Notification**
