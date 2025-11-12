@@ -1,6 +1,9 @@
 name: Notify by Email on Release
 
 on:
+  push:
+    branches:
+      - main
   release:
     types: [published]   # Trigger when a new release is published
 
